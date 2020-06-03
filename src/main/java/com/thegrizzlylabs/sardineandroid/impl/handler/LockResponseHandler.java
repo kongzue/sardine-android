@@ -7,8 +7,8 @@ import com.thegrizzlylabs.sardineandroid.util.SardineUtil;
 import java.io.IOException;
 import java.io.InputStream;
 
-import okhttp3.Response;
-import okhttp3.ResponseBody;
+import baseokhttp3.Response;
+import baseokhttp3.ResponseBody;
 
 /**
  * Created by guillaume on 20/11/2017.

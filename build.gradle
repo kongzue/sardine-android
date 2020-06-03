@@ -19,8 +19,7 @@ apply plugin: 'maven-publish'
 apply plugin: 'com.jfrog.bintray'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion '29.0.2'
+    compileSdkVersion 28
 
     defaultConfig {
         minSdkVersion 15
@@ -29,7 +28,7 @@ android {
 }
 
 dependencies {
-    api 'com.squareup.okhttp3:okhttp:4.1.1'
+    implementation 'com.kongzue.baseokhttp_v3:baseokhttp_v3:3.1.6+'
 
     implementation ('org.simpleframework:simple-xml:2.7.1') {
         exclude module: 'stax'
@@ -37,7 +36,6 @@ dependencies {
         exclude module: 'xpp3'
     }
 
-    testImplementation 'junit:junit:4.12'
 }
 
 task sourcesJar(type: Jar) {
@@ -49,11 +47,9 @@ project.afterEvaluate {
     publishing {
         publications {
             MyPublication(MavenPublication) {
-                if (project.hasProperty('gitVersion')) {
-                    version "$gitVersion"
-                }
-                groupId 'com.thegrizzlylabs.sardine-android'
-                artifactId 'sardine-android'
+                version "1.0.0"
+                groupId 'com.kongzue.webdav_util'
+                artifactId 'webdav_util'
 
                 artifact bundleReleaseAar
                 artifact sourcesJar
@@ -76,26 +72,26 @@ project.afterEvaluate {
     }
 }
 
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
 bintray {
     // Get Bintray credential from environment variable
-    user = System.getenv('BINTRAY_USER')
-    key = System.getenv('BINTRAY_API_KEY')
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
     dryRun = false
     override = false
     publish = true
     pkg {
         repo = 'maven'
-        name = 'sardine-android'
+        name = 'webdav_util'
         userOrg = user
         licenses = ['Apache-2.0']
         desc = 'A WebDAV library for Android'
-        vcsUrl = 'https://github.com/thegrizzlylabs/sardine-android.git'
+        vcsUrl = 'https://github.com/kongzue/sardine-android.git'
 
         version {
-            if (project.hasProperty('gitVersion')) {
-                name = "$gitVersion" //Bintray logical version name
-                vcsTag = "v$gitVersion"
-            }
+            name = "1.0.0" //Bintray logical version name
+            vcsTag = "1.0.0"
         }
     }
     publications = ['MyPublication']

@@ -10,7 +10,7 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
-import okhttp3.Response;
+import baseokhttp3.Response;
 
 /**
  * Created by guillaume on 20/11/2017.

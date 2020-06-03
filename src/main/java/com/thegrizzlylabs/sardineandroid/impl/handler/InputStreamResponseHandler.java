@@ -3,7 +3,7 @@ package com.thegrizzlylabs.sardineandroid.impl.handler;
 import java.io.IOException;
 import java.io.InputStream;
 
-import okhttp3.Response;
+import baseokhttp3.Response;
 
 /**
  * Created by guillaume on 20/11/2017.

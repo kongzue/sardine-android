@@ -52,14 +52,14 @@ import java.util.Map;
 
 import javax.xml.namespace.QName;
 
-import okhttp3.Credentials;
-import okhttp3.Headers;
-import okhttp3.Interceptor;
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
+import baseokhttp3.Credentials;
+import baseokhttp3.Headers;
+import baseokhttp3.Interceptor;
+import baseokhttp3.MediaType;
+import baseokhttp3.OkHttpClient;
+import baseokhttp3.Request;
+import baseokhttp3.RequestBody;
+import baseokhttp3.Response;
 
 /**
  * Created by guillaume on 08/11/2017.

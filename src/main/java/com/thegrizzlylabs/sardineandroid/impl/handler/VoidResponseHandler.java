@@ -6,7 +6,7 @@ package com.thegrizzlylabs.sardineandroid.impl.handler;
 
 import java.io.IOException;
 
-import okhttp3.Response;
+import baseokhttp3.Response;
 
 /**
  * {@link ResponseHandler} which just executes the request and checks the answer is

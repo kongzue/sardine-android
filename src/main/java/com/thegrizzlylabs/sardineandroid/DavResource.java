@@ -29,7 +29,7 @@ import java.util.logging.Logger;
 
 import javax.xml.namespace.QName;
 
-import okhttp3.internal.http.StatusLine;
+import baseokhttp3.internal.http.StatusLine;
 
 /**
  * Describes a resource on a remote server. This could be a directory or an actual file.
@@ -159,7 +159,7 @@ public class DavResource {
             return DEFAULT_STATUS_CODE;
         }
         try {
-            return StatusLine.Companion.parse(response.getStatus()).code;
+            return StatusLine.parse(response.getStatus()).code;
         } catch (IOException e) {
             log.warning(String.format("Failed to parse status line: %s", status));
             return -1;
